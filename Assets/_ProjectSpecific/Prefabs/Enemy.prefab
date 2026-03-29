@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6946229250523153113}
   - component: {fileID: 2359061059053764837}
   - component: {fileID: 271596634552514456}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Enemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -69,8 +69,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 2, y: 1.272881, z: 2.327797}
+  m_Center: {x: -0, y: 0.13644052, z: -0.13488293}
 --- !u!54 &271596634552514456
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -149,6 +149,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: ae32de7b3a29545019fd997799163a77, type: 3}
       propertyPath: m_Name
       value: craft_miner
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: ae32de7b3a29545019fd997799163a77, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

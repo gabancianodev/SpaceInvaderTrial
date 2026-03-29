@@ -24,18 +24,27 @@ public class Rocket : MonoBehaviour
         m_IsFired = i_Status;
     }
 
-    private void OnCollisionEnter(Collision i_Object)
+    protected virtual void OnCollisionEnter(Collision i_Object)
     {
         if(i_Object.gameObject.CompareTag("Enemy") || i_Object.gameObject.CompareTag("EndArea"))
         {
             m_IsFired = false;
-            EventsManager.Instance.InvokeOnRocketHit(this);
-
+            NotifyHit();
         }
 
         if(i_Object.gameObject.CompareTag("Enemy"))
         {
             i_Object.gameObject.SetActive(false);
         }
+
+        if(i_Object.gameObject.CompareTag("Player"))
+        {
+            
+        }
+    }
+
+    protected virtual void NotifyHit()
+    {
+        EventsManager.Instance.InvokeOnRocketHit(this);
     }
 }

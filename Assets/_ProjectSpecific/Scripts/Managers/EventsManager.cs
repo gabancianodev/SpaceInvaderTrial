@@ -43,6 +43,13 @@ public class EventsManager : MonoBehaviour
         DebugMessage("OnPlayerFire");
     }
 
+    public event Action OnPlayerHit;
+    public void InvokeOnPlayerHit()
+    {
+        OnPlayerHit?.Invoke();
+        DebugMessage("OnPlayerHit");
+    }
+
     public event Action OnPlayerDeath;
 
     public void InvokeOnPlayerDeath()
@@ -53,6 +60,16 @@ public class EventsManager : MonoBehaviour
 
     #endregion
 
+    #region ENEMY EVENTS
+    public event Action<Transform> OnEnemyFire;
+
+    public void InvokeOnEnemyFire(Transform i_Transform)
+    {
+        OnEnemyFire?.Invoke(i_Transform);
+        DebugMessage("OnEnemyFire");
+    }
+    #endregion
+
     #region GAME EVENTS
     public event Action<Rocket> OnRocketHit;
 
@@ -60,6 +77,13 @@ public class EventsManager : MonoBehaviour
     {
         OnRocketHit?.Invoke(i_Rocket);
         DebugMessage("OnRocketHit", "Rocket: " + i_Rocket.name);
+    }
+
+    public event Action<EnemyRocket> OnEnemyRocketHit;
+    public void InvokeOnEnemyRocketHit(EnemyRocket i_EnemyRocket)
+    {
+        OnEnemyRocketHit?.Invoke(i_EnemyRocket);
+        DebugMessage("OnEnemyRocketHit", "Enemy Rocket: " + i_EnemyRocket.name);
     }
 
     #endregion
