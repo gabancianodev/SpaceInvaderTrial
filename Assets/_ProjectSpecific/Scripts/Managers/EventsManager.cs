@@ -102,6 +102,14 @@ public class EventsManager : MonoBehaviour
         DebugMessage("OnRocketHit", "Rocket: " + i_Rocket.name);
     }
 
+    public event Action<Transform> OnParticleExplosion;
+
+    public void InvokeOnParticleExplosion(Transform i_ParticleTransform)
+    {
+        OnParticleExplosion?.Invoke(i_ParticleTransform);
+        DebugMessage("OnParticleExplosion");
+    }
+
     public event Action<EnemyRocket, bool> OnEnemyRocketHit;
     public void InvokeOnEnemyRocketHit(EnemyRocket i_EnemyRocket, bool i_IsPlayerHit = false)
     {
