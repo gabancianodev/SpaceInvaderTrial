@@ -18,7 +18,6 @@ public class EnemyRocket : Rocket
 
         if(i_Object.gameObject.CompareTag("Player"))
         {
-            
         }
     }
     protected override void NotifyHit()

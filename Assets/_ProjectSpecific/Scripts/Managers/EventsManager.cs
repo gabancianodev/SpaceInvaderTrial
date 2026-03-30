@@ -25,12 +25,27 @@ public class EventsManager : MonoBehaviour
 #endif
     }
 
+    public event Action OnAppStart;
+    public void InvokeOnAppStart()
+    {
+        OnAppStart?.Invoke();
+        DebugMessage("OnAppStart");
+    }
+
     public event Action OnGameStart;
 
     public void InvokeOnGameStart()
     {
         OnGameStart?.Invoke();
         DebugMessage("OnGameStart");
+    }
+
+    public event Action OnGameOver;
+
+    public void InvokeOnGameOver()
+    {
+        OnGameOver?.Invoke();
+        DebugMessage("OnGameOver");
     }
 
     #region PLAYER EVENTS
@@ -85,6 +100,21 @@ public class EventsManager : MonoBehaviour
         OnEnemyRocketHit?.Invoke(i_EnemyRocket);
         DebugMessage("OnEnemyRocketHit", "Enemy Rocket: " + i_EnemyRocket.name);
     }
+    #endregion
 
+    #region UI EVENTS
+    public event Action<int> OnScoreUpdate;
+    public void InvokeOnScoreUpdate(int i_NewScore)
+    {
+        OnScoreUpdate?.Invoke(i_NewScore);
+        DebugMessage("OnScoreUpdate", "New Score: " + i_NewScore);
+    }
+
+    public event Action<int> OnLivesUpdate;
+    public void InvokeOnLivesUpdate(int i_NewLives)
+    {
+        OnLivesUpdate?.Invoke(i_NewLives);
+        DebugMessage("OnLivesUpdate", "New Lives: " + i_NewLives);
+    }
     #endregion
 }

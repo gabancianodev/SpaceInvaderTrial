@@ -4,7 +4,7 @@ public class GameManager : MonoBehaviour
 {
     private void Start()
     {
-        EventsManager.Instance.InvokeOnGameStart();
+        EventsManager.Instance.InvokeOnAppStart();
 
         Application.targetFrameRate = 60;
     }

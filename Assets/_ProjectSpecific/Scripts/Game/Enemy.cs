@@ -7,16 +7,23 @@ public class Enemy : Ship
     private void Start()
     {
         EventsManager.Instance.OnGameStart += OnGameStart;
+        EventsManager.Instance.OnGameOver += OnGameOver;
     }
 
     private void OnDestroy()
     {
         EventsManager.Instance.OnGameStart -= OnGameStart;
+        EventsManager.Instance.OnGameOver -= OnGameOver;
     }
 
     private void OnGameStart()
     {
         StartCoroutine(FireRandomly());
+    }
+
+    private void OnGameOver()
+    {
+        StopAllCoroutines();
     }
 
     private IEnumerator FireRandomly()

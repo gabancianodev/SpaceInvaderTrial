@@ -33,11 +33,6 @@ public class Rocket : MonoBehaviour
         {
             i_Object.gameObject.SetActive(false);
         }
-
-        if(i_Object.gameObject.CompareTag("Player"))
-        {
-            
-        }
     }
 
     protected virtual void NotifyHit()
