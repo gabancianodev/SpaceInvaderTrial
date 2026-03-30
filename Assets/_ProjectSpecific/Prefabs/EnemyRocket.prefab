@@ -48,8 +48,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyRocket
   m_IsFired: 0
-  m_RocketSpeed: 50
+  m_RocketSpeed: 10
   m_RocketRigidbody: {fileID: 6436065372160651455}
+  m_EnemyRocketRigidbody: {fileID: 6436065372160651455}
 --- !u!65 &7313596360728535295
 BoxCollider:
   m_ObjectHideFlags: 0

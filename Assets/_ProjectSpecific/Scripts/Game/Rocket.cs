@@ -3,15 +3,12 @@ using UnityEngine;
 public class Rocket : MonoBehaviour
 {
     [Header("Rocket Settings")]
-    [SerializeField] private bool m_IsFired = false;
+    [SerializeField] public bool m_IsFired = false;
     [Space]
-    [SerializeField] private float m_RocketSpeed = 50f;
+    [SerializeField] public float m_RocketSpeed = 50f;
     [SerializeField] private Rigidbody m_RocketRigidbody;
 
-
-
-    // Update is called once per frame
-    private void Update()
+    protected virtual void Update()
     {
         if (m_IsFired)
         {

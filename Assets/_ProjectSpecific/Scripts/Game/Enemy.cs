@@ -21,9 +21,14 @@ public class Enemy : Ship
 
     private IEnumerator FireRandomly()
     {
-        yield return new WaitForSeconds(Random.Range(3f, 8f));
-        EventsManager.Instance.InvokeOnEnemyFire(transform);
+        yield return new WaitForSeconds(Random.Range(4f, 8f));
 
+        while (true)
+        {
+            Fire();
+            float nextFireDelay = Random.Range(5f, 8f);
+            yield return new WaitForSeconds(nextFireDelay);
+        }
     }
     protected override void Fire()
     {
