@@ -10,16 +10,28 @@ public class ScoreManager : MonoBehaviour
     private void Start()
     {
         EventsManager.Instance.OnRocketHit += OnRocketHit;
+        EventsManager.Instance.OnGameWon += OnGameWon;
     }
 
     private void OnDestroy()
     {
         EventsManager.Instance.OnRocketHit -= OnRocketHit;
+        EventsManager.Instance.OnGameWon -= OnGameWon;
     }
 
-    private void OnRocketHit(Rocket i_Rocket)
+    private void OnRocketHit(Rocket i_Rocket, bool i_IsEnemyHit)
     {
-        m_CurrentScore += m_EnemyHitScore;
+        if (i_IsEnemyHit)
+        {
+            m_CurrentScore += m_EnemyHitScore;
+            EventsManager.Instance.InvokeOnScoreUpdate(m_CurrentScore);
+        }
+    }
+
+    private void OnGameWon(int i_FinalScore)
+    {
+        m_CurrentScore = i_FinalScore;
         EventsManager.Instance.InvokeOnScoreUpdate(m_CurrentScore);
     }
+
 }

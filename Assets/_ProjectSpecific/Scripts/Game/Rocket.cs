@@ -23,14 +23,15 @@ public class Rocket : MonoBehaviour
 
     protected virtual void OnCollisionEnter(Collision i_Object)
     {
-        if(i_Object.gameObject.CompareTag("Enemy") || i_Object.gameObject.CompareTag("EndArea"))
+        if(i_Object.gameObject.CompareTag("EndArea"))
         {
             m_IsFired = false;
-            NotifyHit();
+            EventsManager.Instance.InvokeOnRocketHit(this, false);
         }
 
         if(i_Object.gameObject.CompareTag("Enemy"))
         {
+            EventsManager.Instance.InvokeOnRocketHit(this, true);
             i_Object.gameObject.SetActive(false);
         }
     }

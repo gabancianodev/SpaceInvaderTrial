@@ -11,17 +11,14 @@ public class EnemyRocket : Rocket
 
     protected override void OnCollisionEnter(Collision i_Object)
     {
-        if(i_Object.gameObject.CompareTag("Player") || i_Object.gameObject.CompareTag("EndArea"))
-        {
-            NotifyHit();
-        }
-
         if(i_Object.gameObject.CompareTag("Player"))
         {
+            EventsManager.Instance.InvokeOnEnemyRocketHit(this, true);
         }
-    }
-    protected override void NotifyHit()
-    {
-        EventsManager.Instance.InvokeOnEnemyRocketHit(this);
+
+        if(i_Object.gameObject.CompareTag("EndArea"))
+        {
+            EventsManager.Instance.InvokeOnEnemyRocketHit(this, false);
+        }
     }
 }

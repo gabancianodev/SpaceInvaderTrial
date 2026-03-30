@@ -8,12 +8,14 @@ public class EnemySetHandler : MonoBehaviour
     {
         EventsManager.Instance.OnGameStart += OnGameStart;
         EventsManager.Instance.OnGameOver += OnGameOver;
+        EventsManager.Instance.OnRocketHit += OnRocketHit;
 
     }
     private void OnDestroy()
     {
         EventsManager.Instance.OnGameStart -= OnGameStart;
         EventsManager.Instance.OnGameOver -= OnGameOver;
+        EventsManager.Instance.OnRocketHit -= OnRocketHit;
     }
 
     private void OnGameStart()
@@ -24,6 +26,23 @@ public class EnemySetHandler : MonoBehaviour
     private void OnGameOver()
     {
         enemiesTween?.Kill();
+    }
+
+    private void OnRocketHit(Rocket i_Rocket, bool i_IsEnemyHit)
+    {
+        int activeEnemies = 0;
+        foreach(Transform enemy in transform)
+        {
+            if(enemy.gameObject.activeInHierarchy)
+            {
+                activeEnemies++;
+            }
+        }
+
+        if(activeEnemies <= 0)
+        {
+            EventsManager.Instance.InvokeOnGameWon(0);
+        }
     }
 
     private void MoveEnemySet()

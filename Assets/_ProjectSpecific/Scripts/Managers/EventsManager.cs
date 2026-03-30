@@ -40,6 +40,14 @@ public class EventsManager : MonoBehaviour
         DebugMessage("OnGameStart");
     }
 
+    public event Action<int> OnGameWon;
+
+    public void InvokeOnGameWon(int i_FinalScore)
+    {
+        OnGameWon?.Invoke(i_FinalScore);
+        DebugMessage("OnGameWon");
+    }
+    
     public event Action OnGameOver;
 
     public void InvokeOnGameOver()
@@ -86,18 +94,18 @@ public class EventsManager : MonoBehaviour
     #endregion
 
     #region GAME EVENTS
-    public event Action<Rocket> OnRocketHit;
+    public event Action<Rocket, bool> OnRocketHit;
 
-    public void InvokeOnRocketHit(Rocket i_Rocket)
+    public void InvokeOnRocketHit(Rocket i_Rocket, bool i_IsEnemyHit = false)
     {
-        OnRocketHit?.Invoke(i_Rocket);
+        OnRocketHit?.Invoke(i_Rocket, i_IsEnemyHit);
         DebugMessage("OnRocketHit", "Rocket: " + i_Rocket.name);
     }
 
-    public event Action<EnemyRocket> OnEnemyRocketHit;
-    public void InvokeOnEnemyRocketHit(EnemyRocket i_EnemyRocket)
+    public event Action<EnemyRocket, bool> OnEnemyRocketHit;
+    public void InvokeOnEnemyRocketHit(EnemyRocket i_EnemyRocket, bool i_IsPlayerHit = false)
     {
-        OnEnemyRocketHit?.Invoke(i_EnemyRocket);
+        OnEnemyRocketHit?.Invoke(i_EnemyRocket, i_IsPlayerHit);
         DebugMessage("OnEnemyRocketHit", "Enemy Rocket: " + i_EnemyRocket.name);
     }
     #endregion

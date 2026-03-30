@@ -52,7 +52,7 @@ public class EnemyAmmoHandler : MonoBehaviour
         rocketToFire.SetIsFiredStatus(true);
     }
 
-    private void OnEnemyRocketHit(EnemyRocket i_EnemyRocket)
+    private void OnEnemyRocketHit(EnemyRocket i_EnemyRocket, bool i_IsPlayerHit)
     {
         if (m_EnemyRocketPool.Contains(i_EnemyRocket))
         {

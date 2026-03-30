@@ -66,7 +66,7 @@ public class AmmoHandler : MonoBehaviour
 
     
 
-    private void OnRocketHit(Rocket i_Rocket)
+    private void OnRocketHit(Rocket i_Rocket, bool i_IsEnemyHit)
     {
         i_Rocket.gameObject.SetActive(false);
         i_Rocket.SetIsFiredStatus(false);

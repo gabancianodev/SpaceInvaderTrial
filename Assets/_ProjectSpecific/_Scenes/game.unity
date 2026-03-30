@@ -178,6 +178,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameOverUIHandler
   m_Container: {fileID: 1829236008}
+  m_DisplayText: {fileID: 541308227}
   m_ReturnToMenuButton: {fileID: 1972286704}
 --- !u!1 &20857592
 GameObject:
@@ -3565,7 +3566,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1410775372}
-  - component: {fileID: 1410775373}
   m_Layer: 0
   m_Name: ==== MANAGERS ====
   m_TagString: Untagged
@@ -3588,19 +3588,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1410775373
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1410775371}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4a2c4d15c6d9341f7b31a2871f9410df, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::GameAreaHandler
-  m_Container: {fileID: 0}
 --- !u!1 &1427467100
 GameObject:
   m_ObjectHideFlags: 0
@@ -4489,7 +4476,7 @@ GameObject:
   - component: {fileID: 1972286705}
   - component: {fileID: 1972286704}
   m_Layer: 5
-  m_Name: PlayButton
+  m_Name: ReturnButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

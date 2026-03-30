@@ -22,8 +22,13 @@ public class LivesManager : MonoBehaviour
         EventsManager.Instance.InvokeOnLivesUpdate(m_CurrentLives);
     }
 
-    private void OnEnemyRocketHit(EnemyRocket i_EnemyRocket)
+    private void OnEnemyRocketHit(EnemyRocket i_EnemyRocket, bool i_IsPlayerHit)
     {
+        if (!i_IsPlayerHit)
+        {
+            return;
+        }
+
         m_CurrentLives -= 1;
         EventsManager.Instance.InvokeOnLivesUpdate(m_CurrentLives);
 
