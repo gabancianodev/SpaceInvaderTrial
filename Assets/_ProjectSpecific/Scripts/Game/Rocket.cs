@@ -31,13 +31,9 @@ public class Rocket : MonoBehaviour
 
         if(i_Object.gameObject.CompareTag("Enemy"))
         {
+            AudioManager.Instance.PlaySFX(eAudioClips.RocketHit);
             EventsManager.Instance.InvokeOnRocketHit(this, true);
             i_Object.gameObject.SetActive(false);
         }
-    }
-
-    protected virtual void NotifyHit()
-    {
-        EventsManager.Instance.InvokeOnRocketHit(this);
     }
 }

@@ -36,6 +36,7 @@ public class MainMenuUIHandler : MonoBehaviour
 
     private void OnPlayButtonPressed()
     {
+        AudioManager.Instance.PlaySFX(eAudioClips.UIPress);
         EventsManager.Instance.InvokeOnGameStart();
     }
 }

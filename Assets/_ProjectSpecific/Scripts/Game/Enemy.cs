@@ -39,6 +39,7 @@ public class Enemy : Ship
     }
     protected override void Fire()
     {
+        AudioManager.Instance.PlaySFX(eAudioClips.EnemyFire);
         EventsManager.Instance.InvokeOnEnemyFire(transform);
     }
 }

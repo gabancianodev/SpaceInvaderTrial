@@ -52,6 +52,8 @@ public class AmmoHandler : MonoBehaviour
             return;
         }
 
+        AudioManager.Instance.PlaySFX(eAudioClips.PlayerFire);
+
         Rocket rocketToFire = m_RocketPool[0];
         rocketToFire.gameObject.SetActive(true);
         m_RocketPool.RemoveAt(0);

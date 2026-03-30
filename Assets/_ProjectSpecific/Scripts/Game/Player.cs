@@ -64,6 +64,8 @@ public class Player : Ship
     protected override void Fire()
     {
         base.Fire();
+
+        
     }
 
     private void MoveLeft()

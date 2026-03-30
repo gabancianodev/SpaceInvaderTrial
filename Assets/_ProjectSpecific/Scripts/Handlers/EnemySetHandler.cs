@@ -39,17 +39,21 @@ public class EnemySetHandler : MonoBehaviour
             }
         }
 
+        activeEnemies -= 1;
+
         if(activeEnemies <= 0)
         {
             EventsManager.Instance.InvokeOnGameWon(0);
         }
+
+        Debug.Log("Active Enemies: " + activeEnemies);
     }
 
     private void MoveEnemySet()
     {
         enemiesTween?.Kill();
 
-        enemiesTween = transform.DOMoveX(16f, 12f, true)
+        enemiesTween = transform.DOMoveX(30f, 12f, true)
         .SetEase(Ease.Linear)
         .SetLoops(-1, LoopType.Yoyo);
     }

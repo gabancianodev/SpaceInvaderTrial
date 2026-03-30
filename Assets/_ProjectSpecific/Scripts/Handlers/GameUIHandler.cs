@@ -35,11 +35,11 @@ public class GameUIHandler : MonoBehaviour
 
     private void OnScoreUpdate(int i_NewScore)
     {
-        m_ScoreText.text = "Score: " + i_NewScore.ToString();
+        m_ScoreText.text = "Score: " + "<color=green>" + i_NewScore.ToString() + "</color>";
     }
 
     private void OnLivesUpdate(int i_NewLives)
     {
-        m_LivesText.text = "Lives: " + i_NewLives.ToString();
+        m_LivesText.text = "Lives: " + "<color=red>" + i_NewLives.ToString() + "</color>";
     }
 }

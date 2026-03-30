@@ -13,6 +13,7 @@ public class EnemyRocket : Rocket
     {
         if(i_Object.gameObject.CompareTag("Player"))
         {
+            AudioManager.Instance.PlaySFX(eAudioClips.RocketHit);
             EventsManager.Instance.InvokeOnEnemyRocketHit(this, true);
         }
 

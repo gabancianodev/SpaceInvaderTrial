@@ -34,12 +34,13 @@ public class GameOverUIHandler : MonoBehaviour
 
     private void OnGameWon(int i_FinalScore)
     {
-        m_DisplayText.text = "You Won!\n\nFinal Score: " + i_FinalScore.ToString();
+        m_DisplayText.text = "You Won!";
         m_Container.SetActive(true);
     }
 
     private void OnReturnToMenuButtonPressed()
     {
+        AudioManager.Instance.PlaySFX(eAudioClips.UIPress);
         SceneManager.LoadScene(0);
     }
 }
